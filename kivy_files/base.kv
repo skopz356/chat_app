@@ -1,0 +1,68 @@
+#:kivy 1.0.9
+
+<ChatScreen>: 
+    name: "chat_screen"
+    message_layout: message_layout
+    BoxLayout:
+        orientation: "horizontal"  
+        do_scroll_y: True             
+        FloatLayout:
+            id: chat_layout
+            Label:
+                text: "Vyberte nějaký chat"
+        
+        ScrollView:
+            GridLayout:
+                id: message_layout
+                size_hint_y: None
+                cols: 1
+                row_default_height: '20dp'
+                row_force_default: True
+                spacing: 0, 0
+                padding: 0, 0
+
+
+<LoginScreen>:
+    name: "login_screen"
+
+    username: username
+    password: password
+
+    AnchorLayout:
+        anchor_x: "center"
+        anchor_y: "center"
+
+        
+        BoxLayout:
+            TextInput:
+                size_hint_y: None
+                id: username 
+                multiline: False
+                height: "100"
+                text: "Zadejte jméno"
+
+            TextInput:
+                size_hint_y: None
+                id: password 
+                multiline: False
+                height: "100"
+                text: "Zadejte heslo"
+
+            Button:
+                text: "Přihlásit"
+                on_release: root.goNext()
+
+            Button:
+                text: "Registrace"
+                on_release: root.openPopup()
+
+        
+
+
+    
+
+    
+
+
+
+

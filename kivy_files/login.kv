@@ -1,0 +1,54 @@
+#:kivy 1.0.9
+
+<RegistrationContent>:
+    password: password
+    check_password: check_password
+    email: email
+    username: username
+
+    TextInput:
+        size_hint_y: None
+        id: username 
+        multiline: False
+        height: "100"
+        text: "Zadejte jméno"
+    
+    TextInput:
+        size_hint_y: None
+        id: email
+        multiline: False
+        height: "100"
+        text: "Zadejte email"
+
+    TextInput:
+        size_hint_y: None
+        id: password 
+        multiline: False
+        height: "100"
+        text: "Zadejte heslo"
+
+
+    TextInput:
+        size_hint_y: None
+        id: check_password 
+        multiline: False
+        height: "100"
+        text: "Zadejte heslo"
+        on_text: root.checkPass()
+
+    Button:
+        id: send_button
+        text: "Odeslat"
+        on_release: root.register()
+        opacity: "0"
+
+    Label:
+        id: error_label
+        text: "Špatné zopakování hesla"
+        width: "0"
+        height: "0"
+        opacity: "0"
+
+
+<RegistrationPopup>:
+    RegistrationContent:
